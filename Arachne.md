@@ -2,7 +2,7 @@ Arachne is introduced to solve the high throuput and low latency at the same tim
 Under traditional operating systems, application can only interact with the OS with virtual resource of CPU, threads. It is undesirable 
 because there are not so much information to OS, which results in under utilization and over commitment. 
 
-Thus Arachne gives visiblity of the physical resource, the CPU cores, to application. Some application using threads only for high responsiablity will requires less core, while application using thread 
+Thus Arachne gives visiblity of the physical resource, the CPU cores, to application. Some application using threads only for fast response time will requires less core, while application using thread 
 to achieve high throughput will requires large number of cores.
 
 The core will negotiated by core arbiter. 
