@@ -5,3 +5,5 @@ especially for the load balancing problem.
 To solve the problem, the author suggests that the load balancing paradigm considering both threads' weights and CPU utilization. 
 Moreover, since there are still NUMA problem, and thread migration, the author also suggests to use the cgroup feature; load balancing 
 considering structure of CPU. 
+
+Additionally, the author developed the scheduler visualization tool so that one may easily determine whether or not CPUs are well utilized.
