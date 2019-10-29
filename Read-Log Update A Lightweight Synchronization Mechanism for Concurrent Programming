@@ -1,0 +1,19 @@
+Read-Log Update (RLU) is an framework for the extension of Read Copy Update(RCU)
+
+Cons for RCU:
+
+1. Programming Complexity (e.g. Double Linked-List cannot traverse backward)
+2. RCU's performance degraded if there are a lot of writers 
+3. Since RCU waits for all readers to complete, there are large delay
+
+The mechanism of RLU 
+
+If writer wants to modify an object, it first write its own writer log. if writting committed, its writing clock increases.
+And, wait until users reading the objects for checking writer locks. 
+
+Suppose that a reader wants to a read the objects after commit, but still the object has not written, but in the writer's log. 
+Unlike RCU, the reader first check the clock, and compare it to w-clock; i.e. check the version. Since, we assumed that 
+ther reader access the objects after the commit, the l-clock is larger than the w-clock.
+
+Then reader steal the objects from the writer's log, rather than wait unlike RCU.  
+
