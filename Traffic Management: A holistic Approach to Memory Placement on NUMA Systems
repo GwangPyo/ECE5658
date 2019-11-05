@@ -1,0 +1,32 @@
+In previous work, researchers had focused on maximize locality of data, however, authors has found out 
+the case increasing localit does not imporve performance. Rather, the authors point out that in modern
+NUMA system, congestion on memory controllers and interconnnects are significiant bottleneck than remo-
+te wire access. 
+That is, adequate scheduling algorithms applied to solving congest controll can produec better perform-
+ance. 
+
+To prove their claim, they had experience to run a single application at a time use only one thread in
+each application, and compared completion time and local memory.  They figure out that the remote memo-
+ry latencies (20%) is lesser than the value measured in microbenchmarks (30%). 
+Then, proved their hypothesis showing varient performance difference via difference memory replacement
+algorithm (Inerleaving and First touch).
+
+The authros suggest 3 mechanisms composing the goal.
+1. Page co-location
+2. Page interleaving 
+3. Page replication 
+
+And algorithm is given by 
+1. decide activate Carrefour (the proposed algorithm in this paper)  
+2. decide enable replication  # this procedure is conservative because it has risk of crucial overheads.
+3. decide enable interleaving 
+4. decide enable co-location  
+
+Overhead 
+The Carrefour algorithm has a few CPU over heads from IBS profiling and replication. As mentioned introduc-
+tion, it was no more than 4%. But, there are memory overhead which cannot be igonred induced by replication.
+For Streancluster benchmark, it was 400MB (353%). 
+
+Energy consumption
+There are another benefits from Carrefour algorithm, energy consumption, achieved by shorten completion time. 
+The energy overhead from Carrefour algorithm was ignorable (2% on MG) 
