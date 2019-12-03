@@ -10,3 +10,8 @@ That is, a host cannot fully control the IO throughput by its own.
 
 #### M Clock Design Goal 
 - Maximize limit and minimize reservation for IO scheduling 
+- proportional share and enforce the control 
+- Tag based Scheduling 
+
+#### DM clock 
+- distributed version of mClock 
